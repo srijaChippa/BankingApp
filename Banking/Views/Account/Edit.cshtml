@@ -1,0 +1,26 @@
+﻿@model Account
+@{
+    ViewData["Title"] = "EditAccount";
+}
+<h1>
+    Edit
+</h1>
+<h2>
+    Account
+</h2>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.AccountName)
+    @Html.TextBoxFor(model => model.AccountName,new { @class="form-control"})
+        <br />
+    @Html.LabelFor(model => model.Balance)
+    @Html.TextBoxFor(model => model.Balance, new { @class="form-control"})
+    <br/>
+    <div class="row">
+        <div>
+            <button type="submit" style="background-color:#0078d4; color: white; border: 0"> Save</button>
+        </div>
+        &nbsp;&nbsp;
+        @Html.ActionLink("Back To List","Index")
+    </div>
+}

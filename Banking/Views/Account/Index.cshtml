@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Account>
+@{
+    ViewData["Title"] = "Index page";
+}
+<h2>
+    All Accounts
+</h2>
+
+@Html.ActionLink("Create New","Create")
+
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model=>model.AccountName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model=>model.Balance)
+
+		</th>
+	</tr>
+	<tbody>
+
+		@foreach(var account in Model)
+		{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelaccount=>account.AccountName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelaccount=>account.Balance)
+			</td>
+			<td>
+				@Html.ActionLink("Edit","Edit","Account",  new { accountNumber = account.AccountNumber})
+				</td>
+				<td>
+					@Html.ActionLink("Details","Details")
+				</td>
+				<td>
+					@Html.ActionLink("Delete","Delete","Account" ,new {accountNumber = account.AccountNumber})
+				</td>
+				</tr>
+		}
+	</tbody>
+	</table>

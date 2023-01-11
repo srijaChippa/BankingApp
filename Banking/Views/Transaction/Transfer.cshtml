@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Transfer>
+@{
+    ViewData["Title"] = "All Transactions";
+}
+
+<h1>
+    @ViewData["Title"]
+</h1>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model=>model.FromAccountNumber)
+
+		</th>
+		<th>
+			@Html.DisplayNameFor(model=>model.ToAccountNumber)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model=>model.TransactionTime)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model=>model.AmountDebited)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model=>model.FromAccountBalance)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model=>model.ToAccountBalance)
+		</th>
+	</tr>
+	<tbody>
+
+	@foreach(var transfer in Model){
+		<tr>
+			<td>
+				@Html.DisplayFor(modeltransfer=>transfer.FromAccountNumber)
+				</td>
+				<td>
+					@Html.DisplayFor(modeltransfer=>transfer.ToAccountNumber)
+				</td>
+				<td>
+					@Html.DisplayFor(modeltransfer=>transfer.TransactionTime)
+				</td>
+				<td>
+					@Html.DisplayFor(modeltransfer=>transfer.AmountDebited)
+				</td>
+				<td>
+					@Html.DisplayFor(modeltransfer=>transfer.FromAccountBalance)
+				</td>
+				<td>
+					@Html.DisplayFor(modeltransfer=>transfer.ToAccountBalance)
+				</td>
+				<td>
+					@Html.ActionLink("Details","Details")
+				</td>
+		</tr>
+	}
+
