@@ -42,6 +42,11 @@ namespace Banking.Controllers
                     ModelState.AddModelError("AccountNumber", "Both FromAccount and ToAccount should not be same!!");
                     return Index();
                 }
+                if (!(transfer.AmountDebited > 1 && transfer.AmountDebited < 10000))
+                { 
+                    ModelState.AddModelError("AmountDebited", "Amount to transfer should be in between $1 and $10000!!");
+                    return Index();
+                }
                 var fromAccount = context.Accounts.Where(_ => _.AccountNumber == transfer.FromAccountNumber).FirstOrDefault();
            
 
@@ -74,7 +79,10 @@ namespace Banking.Controllers
             }
             else
             {
-                ModelState.AddModelError("AmountDebited", "Something Wrong");
+                if(transfer.AmountDebited == 0)
+                    ModelState.AddModelError("AmountDebited", "Please Enter Amount to Transfer");
+                else
+                    ModelState.AddModelError("AmountDebited", "Something Wrong");
             }
             return Index();
         }

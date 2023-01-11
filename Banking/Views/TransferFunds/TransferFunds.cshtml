@@ -11,11 +11,10 @@
 @using( Html.BeginForm())
 {
 <div class="row">
-    <h6>From Account</h6>   @Html.DropDownListFor((model => model.FromAccountNumber), (IEnumerable<SelectListItem>)ViewBag.AccountDetails, string.Empty)
-    <h6>To Account</h6>   @Html.DropDownListFor((model => model.ToAccountNumber), (IEnumerable<SelectListItem>)ViewBag.AccountDetails, string.Empty)
-        <h6>Amount to Transfer</h6> @Html.TextBoxFor((model => model.AmountDebited))
-        @Html.ValidationMessage("AmountDebited","Please enter amount","text-danger")
-    <button type="submit">Transfer</button>
+    <span>From Account<span/>   @Html.DropDownListFor((model => model.FromAccountNumber), (IEnumerable<SelectListItem>)ViewBag.AccountDetails, string.Empty)
+    <span>To Account<span/>   @Html.DropDownListFor((model => model.ToAccountNumber), (IEnumerable<SelectListItem>)ViewBag.AccountDetails, string.Empty)
+        <span>Amount to Transfer</span> @Html.TextBoxFor((model => model.AmountDebited))
+    &nbsp;<button type="submit">Transfer</button>
         @Html.ValidationSummary(false, "", new { @class = "text-danger"})
 </div>
 
