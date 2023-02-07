@@ -45,5 +45,28 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+    $(document).ready(function(){
+    $('#demo').click(function(){
+        alert('sd');
+        debugger;
+    $.ajax({
+    type:'Get',
+    contentType:'application/json',
+                    url: 'https://localhost:7118/api/Account/Get',
+    success: function(data, status) {
+        console.log(data);
+        let jsonString = JSON.stringify(data);
+        console.log(status);
+                        $('#text').append(jsonString);
+    }
+
+    })
+    })
+    })
+    </script>
+ 
+        <input type=button id = "demo" value = "get elements" />
+        <div id="text"></div>
 </body>
 </html>

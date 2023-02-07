@@ -1,6 +1,8 @@
-﻿using Banking.DbEntity;
-using Banking.Models;
+﻿
+using Banking.services;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Security.Authentication;
 
 namespace Banking.Controllers
 {
@@ -13,13 +15,50 @@ namespace Banking.Controllers
 		{
 			this.context = new BankContext();
 		}
-		[Route("Index")]
-		public IActionResult Index()
+        
+            [Route("Index")]
+		public async Task<IActionResult> Index()
 		{
-			var acc=context.Accounts.ToList();
+			//var acc= context.Accounts.ToList();
 
-			return View(acc);
+			return View();
+			//return View(acc);
+			//IEnumerable<Account> Accounts = null;
+
+
+			//using (var client = new HttpClient())
+			//{
+			//	try
+			//	{
+
+			//		var responseTask = await client.GetAsync("http://localhost:7118/api/Account/Get");
+
+			//		var result = responseTask;
+			//		if (result.IsSuccessStatusCode)
+			//		{
+			//			var readTask = await result.Content.ReadAsAsync<IList<Account>>();
+
+			//			Accounts = readTask;
+			//		}
+			//		else
+			//		{
+			//			//log response status here..
+
+			//			Accounts = Enumerable.Empty<Account>();
+
+			//			ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+			//		}
+			//	}
+			//	catch(Exception ex) 
+			//	{
+				
+			//	}
+
+			//}
+			//return View(Accounts);
+
 		}
+
 		[HttpGet]
 		[Route("Create")]
 		public IActionResult Create()

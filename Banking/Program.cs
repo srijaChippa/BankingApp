@@ -1,7 +1,9 @@
-using Banking.DbEntity;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Net;
+using System.Security.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);	
 
@@ -32,4 +34,5 @@ app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+
+    app.Run();
