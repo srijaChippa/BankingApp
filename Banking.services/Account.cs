@@ -10,7 +10,9 @@ namespace Banking.services
 			[Key]
 			public int AccountNumber { get; set; }
 			public string AccountName { get; set; }
+		//[Required]
 			public decimal Balance { get; set; }
+
 
 		}
 
